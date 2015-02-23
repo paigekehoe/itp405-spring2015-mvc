@@ -18,12 +18,12 @@
         </div>
         <div class="form-group">
             <label>Genre</label>
-            <select class="form-control" name="Genre_id">
+            <select class="form-control" name="genre">
                 <option value ="0">
                     All
                 </option>
                 <?php foreach ($genres as $genre): ?>
-                    <option value ="<?php echo $genre->id?>">
+                    <option value ="<?php echo $genre->genre_name?>">
                         <?php echo $genre->genre_name ?>
                     </option>
                 <?php endforeach; ?>
@@ -32,12 +32,12 @@
         </div>
         <div class="form-group">
             <label>Rating/label>
-            <select class="form-control" name="rating_id">
+            <select class="form-control" name="rating">
                 <option value ="0">
                     All
                 </option>
                 <?php foreach ($ratings as $rating): ?>
-                    <option value ="<?php echo $rating->id?>">
+                    <option value ="<?php echo $rating->rating_name?>">
                         <?php echo $rating->rating_name ?>
                     </option>>
                 <?php endforeach; ?>

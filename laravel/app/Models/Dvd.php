@@ -1,10 +1,13 @@
 <?php
 
+namespace App\Models;
+use DB;
+
 class Dvd {
 
     public function search($dvd_title, $genre, $rating){
         $query = DB::table('dvds')
-            ->select('title', 'rating_name','genre_name', 'label_name', 'sound_name', 'format_name', DB::raw('DATE_FORMAT(release_date, %b %d %y) AS release_date'))
+            ->select('title', 'rating_name','genre_name', 'label_name', 'sound_name', 'format_name', 'release_date')
             ->join('ratings', 'ratings.id','=','dvds.rating_id')
             ->join('genres', 'genres.id','=','dvds.genre_id')
             ->join('labels', 'labels.id','=','dvds.label_id')

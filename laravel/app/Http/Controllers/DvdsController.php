@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use DB;
-use App\Models\SongQuery;
+use App\Models\Dvd;
 
     class DvdsController extends Controller {
 
@@ -40,7 +40,7 @@ use App\Models\SongQuery;
                 $dvd_title = $request->input('dvd_title');
                 $genre = $request->input('genre');
                 $rating =$request->input('rating');
-                $dvds = (new DvdQuery())->search($dvd_title, $rating, $genre);
+                $dvds = (new Dvd())->search($dvd_title, $rating, $genre);
             }
 
             return view('results', ['dvds' => $dvds, 'dvd_title'=>$dvd_title, 'genre'=>$genre

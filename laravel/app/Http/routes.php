@@ -17,7 +17,7 @@ Route::get('home', 'HomeController@index');
 
 Route::get('/dvds/search', 'DvdsController@search');
 
-Route::post('/dvds', 'DvdsController@results');
+Route::get('/dvds', 'DvdsController@results');
 
 Route::get('dvds/new', 'DvdsController@create');
 

@@ -11,17 +11,14 @@
 <h1> Results</h1>
 
 <p>
-    You searched for a movie with the title: <?php echo $dvd_title;
-    if($genre)
-        echo 'with the genre"'.$genre.'"';
-    if($rating)
-        echo 'with the rating"'.$rating.'"';
-    ?>
-
+    You searched for a movie with the title: <?php echo $dvd_title; ?>
+    with the genre : <?php echo $genre ?>
+    and with the rating : <?php $rating ?>
 
 </p>
 
-    <table claee="table table">
+<div class = "results">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Title</th>
@@ -33,6 +30,7 @@
                 <th>Release Date</th>
             </tr>
         </thead>
+
         <tbody>
         <?php foreach ($dvds as $dvd) : ?>
         <tr>
@@ -42,7 +40,7 @@
             <td><?php echo $dvd->label?></td>
             <td><?php echo $dvd->sound?></td>
             <td><?php echo $dvd->format?></td>
-            <td><?php echo $dvd->release_date?></td>
+            <td><?php echo DATE_FORMAT(new DateTime($dvd->release_date), 'm-d-Y') ?></td>
 
 
         </tr>
@@ -52,7 +50,7 @@
     </table>
 
 
-</p>
+</div>
 
 
 </body>
