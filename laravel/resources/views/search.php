@@ -1,5 +1,3 @@
-
-
 <!doctype HTML>
 <html>
 <head>
@@ -19,11 +17,11 @@
         <div class="form-group">
             <label>Genre</label>
             <select class="form-control" name="genre">
-                <option value ="0">
+                <option value ="-1">
                     All
                 </option>
                 <?php foreach ($genres as $genre): ?>
-                    <option value ="<?php echo $genre->genre_name?>">
+                    <option value ="<?php echo $genre->genre_id?>">
                         <?php echo $genre->genre_name ?>
                     </option>
                 <?php endforeach; ?>
@@ -31,13 +29,13 @@
             </select>
         </div>
         <div class="form-group">
-            <label>Rating/label>
+            <label>Rating</label>
             <select class="form-control" name="rating">
-                <option value ="0">
+                <option value ="-1">
                     All
                 </option>
                 <?php foreach ($ratings as $rating): ?>
-                    <option value ="<?php echo $rating->rating_name?>">
+                    <option value ="<?php echo $rating->rating_id?>">
                         <?php echo $rating->rating_name ?>
                     </option>>
                 <?php endforeach; ?>

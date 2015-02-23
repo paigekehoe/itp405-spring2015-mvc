@@ -31,19 +31,19 @@ use App\Models\Dvd;
                }
 
             if(empty($request)){
-                $dvds = (new Dvd())->search('*','*','*');
-                $dvd_title = '';
+                $dvds = (new Dvd())->getAllTitles();
+                $dvd_title = None;
                 $rating ='';
                 $genre = '';
             }
             else {
                 $dvd_title = $request->input('dvd_title');
-                $genre = $request->input('genre');
-                $rating =$request->input('rating');
+                $genre = $request->input('genre_id');
+                $rating =$request->input('rating_id');
                 $dvds = (new Dvd())->search($dvd_title, $rating, $genre);
             }
 
-            return view('results', ['dvds' => $dvds, 'dvd_title'=>$dvd_title, 'genre'=>$genre
+            return view('results', ['dvds' => $dvds, 'dvd_title'=>$dvd_title, 'genre'=>$genre, 'rating'=>$rating
             ]);
 
             //var_dump($request->input('song_title'));
