@@ -7,7 +7,7 @@
 <body>
 
 <div class="jumbotron">
-    <h1><?php echo $dvd->title ?></h1>
+
 
     <?php foreach($errors->all() as $errorMessage):?>
     <p> <?php echo $errorMessage ?> </p>
@@ -16,6 +16,8 @@
     <?php if(Session::has('success')) : ?>
         <p> <?php echo Session::get('success') ?> </p>
     <?php endif; ?>
+
+    <h1><?php        echo $dvd->title ?></h1>
 
     <table class="table table-striped">
         <thead>

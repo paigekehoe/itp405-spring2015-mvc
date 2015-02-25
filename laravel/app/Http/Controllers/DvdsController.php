@@ -38,10 +38,10 @@ use App\Models\Dvd;
         }
 
 
-        public function details($dvd_id){
+        public function detailview($dvd_id){
             $dvd = Dvd::getDvd($dvd_id);
 
-            return view('detailview', ['dvd'=>$dvd, 'dvd_id'=>$dvd->$id]);
+            return view('detailview', ['dvd'=>$dvd, 'dvd_id'=>$dvd_id]);
         }
 
         public function createReview(Request $request){

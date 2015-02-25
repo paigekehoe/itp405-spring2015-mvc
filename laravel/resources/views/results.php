@@ -22,6 +22,7 @@
         <thead>
             <tr>
                 <th>Title</th>
+                <th> </th>
                 <th>Rating</th>
                 <th>Genre</th>
                 <th>Label</th>
@@ -35,7 +36,7 @@
         <?php foreach ($dvds as $dvd) : ?>
         <tr>
             <td><?php echo $dvd->title ?> </td>
-            <td><a href="/dvds/<?php echo $dvd->id ?>" Reviews ></td>
+            <td><a href="/dvds/<?php echo $dvd->id ?>"> Reviews </a></td>
             <td><?php echo $dvd->rating_name ?></td>
             <td><?php echo $dvd->genre_name?></td>
             <td><?php echo $dvd->label_name?></td>
