@@ -17,7 +17,7 @@
         <p> <?php echo Session::get('success') ?> </p>
     <?php endif; ?>
 
-    <h1><?php        echo $dvd->title ?></h1>
+
 
     <table class="table table-striped">
         <thead>

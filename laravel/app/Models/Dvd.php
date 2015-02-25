@@ -41,7 +41,7 @@ class Dvd {
             ->join('formats', 'formats.id','=','dvds.format_id')
             ->where('dvds.id', $id);
 
-        return $query->get();
+        return $query->first();
     }
 
     public function getReviews($id){
