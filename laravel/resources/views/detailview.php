@@ -17,7 +17,7 @@
         <p> <?php echo Session::get('success') ?> </p>
     <?php endif; ?>
 
-
+    <h1><?php        echo $dvd->title ?></h1>
 
     <table class="table table-striped">
         <thead>
@@ -44,18 +44,13 @@
     </table>
 
 
-</div>
-<h3>Reviews</h3>
+<h3>Add Review</h3>
 </br>
     <?php $int = 1 ?>
-<div class="container"><
+<div class="container">
     <form method="post" action="<?php echo url("dvds")?>">
     <input type="hidden" name="_token" value="<?php echo csrf_token()?>">
     <input type="hidden" name="dvd_id" value="<?php echo $dvd_id ?> ">
-        <div class="form-group">
-            <label>Review</label>
-            <input name="review" class="form-control">
-        </div>
         <div class="form-group">
             <label>Review Title - min 5 char</label>
             <input type="text" name="review_title">
