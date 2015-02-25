@@ -26,9 +26,9 @@ use App\Models\Dvd;
 
 
         public function results(Request $request){
-            if(!$request->input('dvd_title')){
-                   return redirect('/dvd/search');
-               }
+//            if(!$request->input('dvd_title')){
+//                   return redirect('/dvd/search');
+//               }
 
             if(empty($request)){
                 $dvds = (new Dvd())->getAllTitles();

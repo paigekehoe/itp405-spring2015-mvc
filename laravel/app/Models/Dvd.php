@@ -16,11 +16,11 @@ class Dvd {
         if($dvd_title){
             $query->where('title', 'LIKE', '%'.$dvd_title.'%');
         }
-        if($genre!=-1){
-            $query->where('genre_id', '=', '%'.$genre.'%');
+        if($genre!=-1&& $genre!=null){
+            $query->where('genre_id', '=', $genre);
         }
-        if($rating !=-1){
-            $query->where('rating_id', '=', '%'.$rating.'%');
+        if($rating !=-1&&$rating!=null){
+            $query->where('rating_id', '=', $rating);
         }
         $query->orderBy('title', 'asc');
 

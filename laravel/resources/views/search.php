@@ -21,7 +21,7 @@
                     All
                 </option>
                 <?php foreach ($genres as $genre): ?>
-                    <option value ="<?php echo $genre->genre_id?>">
+                    <option value ="<?php echo $genre->id?>">
                         <?php echo $genre->genre_name ?>
                     </option>
                 <?php endforeach; ?>
@@ -35,7 +35,7 @@
                     All
                 </option>
                 <?php foreach ($ratings as $rating): ?>
-                    <option value ="<?php echo $rating->rating_id?>">
+                    <option value ="<?php echo $rating->id?>">
                         <?php echo $rating->rating_name ?>
                     </option>>
                 <?php endforeach; ?>
