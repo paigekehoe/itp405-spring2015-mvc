@@ -19,6 +19,8 @@ Route::get('/dvds/search', 'DvdsController@search');
 
 Route::get('/dvds', 'DvdsController@results');
 
+Route::get('/dvds/{id}', 'DvdsController@reviewPage($id)');
+
 Route::get('dvds/new', 'DvdsController@create');
 
 

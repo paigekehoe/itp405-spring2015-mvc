@@ -14,21 +14,11 @@ use App\Models\Dvd;
                 'genres' => $genres]);
         }
 
-//        public function create(){
-//
-//            $artists = DB::table('artists')->get();
-//            $genres = DB::table('genres')->get();
-//
-//            return view('songform', ['artists' => $artists,
-//                'genres' => $genres]);
-//
-//        }
-
-
         public function results(Request $request){
 //            if(!$request->input('dvd_title')){
 //                   return redirect('/dvd/search');
 //               }
+
 
             if(empty($request)){
                 $dvds = (new Dvd())->getAllTitles();
@@ -45,20 +35,36 @@ use App\Models\Dvd;
 
             return view('results', ['dvds' => $dvds, 'dvd_title'=>$dvd_title, 'genre'=>$genre, 'rating'=>$rating
             ]);
-
-            //var_dump($request->input('song_title'));
-//            $songs = DB::table('songs')
-//            ->join('artists', 'artists.id','=','songs.artist_id')
-//            ->join('genres','genres.id','=','songs.genre_id')
-//            ->where('title', 'LIKE', '%'.$request->input('song_title').'%')
-//            ->orderBy('artist_name','asc')
-//            ->get();
-            //dd($songs);
-
-//            return view('results', [
-//            'song_title' => $request->input('song_title'),
-//                'songs'=> $songs
-//            ]);
         }
+
+
+        public function details($dvd_id){
+            $dvd = Dvd::getDvd($dvd_id);
+
+            return view('detailview', ['dvd'=>$dvd, 'dvd_id'=>$dvd->$id]);
+        }
+
+        public function createReview(Request $request){
+            $validation = Dvd::validate($request->all());
+
+            if($validation->passes()){
+                Dvd::createReview([
+                   'review_title'=>$request->input('review_title'),
+                    'rating'=>$request->input('rating'),
+                    'description'=>$request->input('rating'),
+                    'dvd_id' =>$request->input('dvd_id'),
+
+                ]);
+                return redirect('detailview')
+                    ->with('success', 'Review created');
+            }
+            else {
+                return redirect('detailview')
+                    ->withInput()
+                    ->withErrors($validation);
+            }
+
+        }
+
 
     }
