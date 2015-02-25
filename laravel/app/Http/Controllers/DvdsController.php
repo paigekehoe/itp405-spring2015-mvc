@@ -38,8 +38,8 @@ use App\Models\Dvd;
             }
             else {
                 $dvd_title = $request->input('dvd_title');
-                $genre = $request->input('genre_id');
-                $rating =$request->input('rating_id');
+                $genre = $request->input('genre');
+                $rating =$request->input('rating');
                 $dvds = (new Dvd())->search($dvd_title, $rating, $genre);
             }
 
