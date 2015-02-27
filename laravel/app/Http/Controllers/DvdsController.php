@@ -40,8 +40,10 @@ use App\Models\Dvd;
 
         public function detailview($dvd_id){
             $dvd = Dvd::getDvd($dvd_id);
+            $reviews = Dvd::getReviews($dvd_id);
+            $data = ['dvd'=>$dvd, 'dvd_id'=>$dvd_id, 'reviews'=>$reviews];
 
-            return view('detailview', ['dvd'=>$dvd, 'dvd_id'=>$dvd_id]);
+            return view('detailview', $data);
         }
 
         public function createReview(Request $request){
@@ -49,22 +51,24 @@ use App\Models\Dvd;
 
             if($validation->passes()){
                 Dvd::createReview([
-                   'review_title'=>$request->input('review_title'),
+                   'title'=>$request->input('review_title'),
                     'rating'=>$request->input('rating'),
-                    'description'=>$request->input('rating'),
+                    'description'=>$request->input('description'),
                     'dvd_id' =>$request->input('dvd_id'),
 
                 ]);
-                return redirect('detailview')
+                return redirect('/dvds/'.$request->input('dvd_id'))
                     ->with('success', 'Review created');
             }
             else {
-                return redirect('detailview')
+                return redirect('/dvds/'.$request->input('dvd_id'))
                     ->withInput()
                     ->withErrors($validation);
             }
 
         }
+
+
 
 
     }

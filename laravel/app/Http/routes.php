@@ -21,7 +21,7 @@ Route::get('/dvds', 'DvdsController@results');
 
 Route::get('/dvds/{id}', 'DvdsController@detailview');
 
-Route::get('dvds/new', 'DvdsController@create');
+Route::post('/dvds/new', 'DvdsController@createReview');
 
 
 Route::controllers([

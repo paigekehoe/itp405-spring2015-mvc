@@ -2,6 +2,7 @@
 
 namespace App\Models;
 use DB;
+use Validator;
 
 class Dvd {
 
@@ -44,10 +45,10 @@ class Dvd {
         return $query->first();
     }
 
-    public function getReviews($id){
+    public static function getReviews($id){
         $query = DB::table('reviews')
-            ->select(all)
-            ->where('dvd_id','=', $id);
+            ->select('title', 'description', 'rating')
+            ->where('dvd_id',$id);
 
         return $query->get();
 
@@ -57,7 +58,7 @@ class Dvd {
         return DB::table('reviews')->insert($data);
     }
 
-    public function validate($input){
+    public static function validate($input){
         return Validator::make($input, [
             'rating' => 'required|integer',
             'review_title' => 'required|min:5',

@@ -17,7 +17,7 @@
         <p> <?php echo Session::get('success') ?> </p>
     <?php endif; ?>
 
-    <h1><?php        echo $dvd->title ?></h1>
+    <h1><?php echo $dvd->title ?></h1>
 
     <table class="table table-striped">
         <thead>
@@ -43,14 +43,36 @@
         </tbody>
     </table>
 
+    <h3>Reviews </h3>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Rating</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+            <?php foreach ($reviews as $review) : ?>
+            <td><?php echo $review->title ?></td>
+            <td><?php echo $review->rating?></td>
+            <td><?php echo $review->description?></td>
+        </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+
 
 <h3>Add Review</h3>
 </br>
     <?php $int = 1 ?>
 <div class="container">
-    <form method="post" action="<?php echo url("dvds")?>">
+    <form method="post" action="/dvds/new">
     <input type="hidden" name="_token" value="<?php echo csrf_token()?>">
-    <input type="hidden" name="dvd_id" value="<?php echo $dvd_id ?> ">
+    <input type="hidden" name="dvd_id" value="<?php echo $dvd->dvd_id ?> ">
         <div class="form-group">
             <label>Review Title - min 5 char</label>
             <input type="text" name="review_title">
@@ -68,7 +90,7 @@
         </div>
         <div class="form-group">
             <label>Description - min 20 char</label>
-            <input name="description" class="form-control" type ="text">
+            <textarea name="description" class="form-control" type ="text"> </textarea>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
     </form>
