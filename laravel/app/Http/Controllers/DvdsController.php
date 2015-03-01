@@ -15,10 +15,6 @@ use App\Models\Dvd;
         }
 
         public function results(Request $request){
-//            if(!$request->input('dvd_title')){
-//                   return redirect('/dvd/search');
-//               }
-
 
             if(empty($request)){
                 $dvds = (new Dvd())->getAllTitles();
@@ -66,6 +62,28 @@ use App\Models\Dvd;
                     ->withErrors($validation);
             }
 
+        }
+
+        public function addNewDvd(Request $request){
+
+            $validation = Dvd::validateNewSong($request->all());
+            if($validation->passes()){
+                Dvd::addNew([
+                    'title' => $request->input('title'),
+                    'label'=>$request->input('label'),
+                    'sound'=>$request->input('sound'),
+                    'genre'=>$request->input('genre'),
+                    'rating'=>$request->input('rating'),
+                    'format'=>$request->input('format'),
+                ]);
+                return reditect('/dvds/create')
+                ->with('success', 'Dvd added to database!');
+            }
+            else {
+                return redirect('/dvds/create')
+                    ->withInput()
+                    ->withErrors($validation);
+            }
         }
 
 

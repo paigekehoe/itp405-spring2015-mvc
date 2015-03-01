@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Dvd;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -23,6 +25,22 @@ Route::get('/dvds/{id}', 'DvdsController@detailview');
 
 Route::post('/dvds/new', 'DvdsController@createReview');
 
+Route::post('/dvds/create', 'DvdsController@create');
+
+Route::get('/eager-loading', function(){
+    $dvds = Dvd::with('genre')->get();
+    var_dump($dvds->toArray());
+});
+
+Route::get('/genres/{genre_name}/dvds', function($genre_name){
+    $dvds = Dvd::with('genre')
+        ->whereHas('genre', function($query) use ($genre_name) {
+        $query->where('genre_name', '=', $genre_name);
+    })
+    ->get();
+
+    return $dvds;
+});
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

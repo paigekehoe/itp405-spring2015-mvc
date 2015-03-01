@@ -3,8 +3,9 @@
 namespace App\Models;
 use DB;
 use Validator;
+use Illuminate\Database\Eloquent\Model;
 
-class Dvd {
+class Dvd extends Model {
 
     public function search($dvd_title, $rating, $genre){
         $query = DB::table('dvds')
@@ -64,6 +65,25 @@ class Dvd {
             'review_title' => 'required|min:5',
             'description' => 'required|min:20',
         ]);
+    }
+
+    public function validateNewSong($input){
+        return Validator::make($input, [
+           'title' => 'required',
+            'label'=>'required',
+            'sound'=>'required',
+            'genre'=>'required',
+            'rating'=>'required',
+            'format'=>'required'
+        ]);
+    }
+
+    public static function addNew($new_dvd){
+        return DB::table('dvds')->insert($new_dvd);
+    }
+
+    public function genre(){
+        return $this->belongsTo('App\Models\Genre');
     }
 
 }
