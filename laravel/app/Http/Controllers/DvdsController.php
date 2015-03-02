@@ -89,13 +89,13 @@ use App\Models\Dvd;
             if($validation->passes()){
                 Dvd::addNew([
                     'title' => $request->input('title'),
-                    'label'=>$request->input('label_id'),
-                    'sound'=>$request->input('sound_id'),
-                    'genre'=>$request->input('genre_id'),
-                    'rating'=>$request->input('rating_id'),
-                    'format'=>$request->input('format_id'),
+                    'label_id'=>$request->input('label_id'),
+                    'sound_id'=>$request->input('sound_id'),
+                    'genre_id'=>$request->input('genre_id'),
+                    'rating_id'=>$request->input('rating_id'),
+                    'format_id'=>$request->input('format_id'),
                 ]);
-                return reditect('/dvds/create')
+                return redirect('/dvds/create')
                 ->with('success', 'Dvd added to database!');
             }
             else {

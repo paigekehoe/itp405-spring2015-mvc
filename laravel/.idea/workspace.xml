@@ -62,10 +62,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dvdform.blade.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="dvdform.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/dvdform.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="58" selection-start="1782" selection-end="1782" vertical-scroll-proportion="0.3294702" vertical-offset="701" max-vertical-offset="1305">
+            <state line="60" column="58" selection-start="1782" selection-end="1782" vertical-scroll-proportion="-18.0" vertical-offset="0" max-vertical-offset="1305">
               <folding />
             </state>
           </provider>
@@ -123,10 +123,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DvdsController.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="DvdsController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DvdsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="95" column="56" selection-start="3441" selection-end="3441" vertical-scroll-proportion="-17.5" vertical-offset="975" max-vertical-offset="1710">
+            <state line="97" column="28" selection-start="3508" selection-end="3508" vertical-scroll-proportion="0.71428573" vertical-offset="975" max-vertical-offset="1710">
               <folding />
             </state>
           </provider>
@@ -160,8 +160,8 @@
         <option value="$PROJECT_DIR$/resources/views/genres.blade.php" />
         <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/app/Models/Dvd.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/DvdsController.php" />
         <option value="$PROJECT_DIR$/resources/views/dvdform.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/DvdsController.php" />
       </list>
     </option>
   </component>
@@ -725,6 +725,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/dvdform.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="58" selection-start="1782" selection-end="1782" vertical-scroll-proportion="-18.0" vertical-offset="0" max-vertical-offset="1305">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Dvd.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="76" column="22" selection-start="2424" selection-end="2424" vertical-scroll-proportion="-15.0" vertical-offset="750" max-vertical-offset="1380">
@@ -734,14 +741,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DvdsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="95" column="56" selection-start="3441" selection-end="3441" vertical-scroll-proportion="-17.5" vertical-offset="975" max-vertical-offset="1710">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/dvdform.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="58" selection-start="1782" selection-end="1782" vertical-scroll-proportion="0.3294702" vertical-offset="701" max-vertical-offset="1305">
+        <state line="97" column="28" selection-start="3508" selection-end="3508" vertical-scroll-proportion="0.71428573" vertical-offset="975" max-vertical-offset="1710">
           <folding />
         </state>
       </provider>
