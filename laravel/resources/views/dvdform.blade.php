@@ -13,11 +13,11 @@
 @section('content')
 
     @foreach($errors->all() as $errorMessage)
-        <p>  {{$errorMessage }} </p>
+        <p><h5>  {{ $errorMessage }}  </h5> </p>
     @endforeach
 
     @if(Session::has('success'))
-    <p> {{ Session::get('success') }}
+    <p> <h4> {{ Session::get('success') }} </h4></p>
     @endif
 
     <form method="post" action="/dvds">

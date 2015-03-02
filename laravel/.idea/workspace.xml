@@ -54,18 +54,16 @@
       <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="1" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1440">
-              <folding>
-                <marker date="1425338512000" expanded="true" signature="2104:2640" placeholder="{...}" />
-              </folding>
+            <state line="23" column="20" selection-start="386" selection-end="386" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1560">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dvdform.blade.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="dvdform.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/dvdform.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="58" selection-start="1782" selection-end="1782" vertical-scroll-proportion="-18.0" vertical-offset="0" max-vertical-offset="1305">
+            <state line="30" column="57" selection-start="712" selection-end="712" vertical-scroll-proportion="0.5960265" vertical-offset="90" max-vertical-offset="1305">
               <folding />
             </state>
           </provider>
@@ -123,10 +121,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DvdsController.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="DvdsController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DvdsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="97" column="28" selection-start="3508" selection-end="3508" vertical-scroll-proportion="0.71428573" vertical-offset="975" max-vertical-offset="1710">
+            <state line="97" column="28" selection-start="3508" selection-end="3508" vertical-scroll-proportion="-18.75" vertical-offset="975" max-vertical-offset="1710">
               <folding />
             </state>
           </provider>
@@ -158,10 +156,10 @@
         <option value="$PROJECT_DIR$/resources/views/home.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/layout.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/genres.blade.php" />
-        <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/app/Models/Dvd.php" />
-        <option value="$PROJECT_DIR$/resources/views/dvdform.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/DvdsController.php" />
+        <option value="$PROJECT_DIR$/public/css/style.css" />
+        <option value="$PROJECT_DIR$/resources/views/dvdform.blade.php" />
       </list>
     </option>
   </component>
@@ -709,25 +707,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="1" selection-start="328" selection-end="328" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1440">
-          <folding>
-            <marker date="1425338512000" expanded="true" signature="2104:2640" placeholder="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="46" selection-start="752" selection-end="761" vertical-scroll-proportion="-13.75" vertical-offset="75" max-vertical-offset="840">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/dvdform.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="58" selection-start="1782" selection-end="1782" vertical-scroll-proportion="-18.0" vertical-offset="0" max-vertical-offset="1305">
           <folding />
         </state>
       </provider>
@@ -741,7 +723,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DvdsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="28" selection-start="3508" selection-end="3508" vertical-scroll-proportion="0.71428573" vertical-offset="975" max-vertical-offset="1710">
+        <state line="97" column="28" selection-start="3508" selection-end="3508" vertical-scroll-proportion="-18.75" vertical-offset="975" max-vertical-offset="1710">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="20" selection-start="386" selection-end="386" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1560">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/dvdform.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="57" selection-start="712" selection-end="712" vertical-scroll-proportion="0.5960265" vertical-offset="90" max-vertical-offset="1305">
           <folding />
         </state>
       </provider>
