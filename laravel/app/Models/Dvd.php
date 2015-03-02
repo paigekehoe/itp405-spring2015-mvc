@@ -67,14 +67,14 @@ class Dvd extends Model {
         ]);
     }
 
-    public function validateNewSong($input){
+    public static function validateNewDvd($input){
         return Validator::make($input, [
            'title' => 'required',
-            'label'=>'required',
-            'sound'=>'required',
-            'genre'=>'required',
-            'rating'=>'required',
-            'format'=>'required'
+            'label_id'=>'required',
+            'sound_id'=>'required',
+            'genre_id'=>'required',
+            'rating_id'=>'required',
+            'format_id'=>'required'
         ]);
     }
 

@@ -25,16 +25,16 @@
                         @endforeach
                     </ul>
                 </li>
-                <li><a href="/dvds">Search</a></li>
+                <li><a href="/">Search</a></li>
                 <li><a href="/dvds/create">Create DVD</a></li>
 
             </ul>
         </div>
         </div>
 </nav>
-<div class="jumbotron">
-    <h1> DVD Search</h1>
-</div>
+
+@section('jumbo')
+<h1>DVD Search </h1>>
 
 @section('sidebar')
 <!--<ul class="sidebar-nav span2" id="sidebar" style="position:relative; width:20%">-->

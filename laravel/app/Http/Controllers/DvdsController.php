@@ -14,8 +14,16 @@ use App\Models\Dvd;
                 'genres' => $genres]);
         }
 
-        public function results(Request $request){
+        public function home()
+        {
+            $ratings = DB::table('ratings')->get();
+            $genres = DB::table('genres')->get();
+            return view('home', ['ratings' => $ratings,
+                'genres' => $genres]);
+        }
 
+        public function results(Request $request){
+            $genres = DB::table('genres')->get();
             if(empty($request)){
                 $dvds = (new Dvd())->getAllTitles();
                 $dvd_title = None;
@@ -29,7 +37,7 @@ use App\Models\Dvd;
                 $dvds = (new Dvd())->search($dvd_title, $rating, $genre);
             }
 
-            return view('results', ['dvds' => $dvds, 'dvd_title'=>$dvd_title, 'genre'=>$genre, 'rating'=>$rating
+            return view('results', ['dvds' => $dvds, 'dvd_title'=>$dvd_title, 'genres'=>$genres, 'genre'=>$genre, 'rating'=>$rating
             ]);
         }
 
@@ -40,6 +48,17 @@ use App\Models\Dvd;
             $data = ['dvd'=>$dvd, 'dvd_id'=>$dvd_id, 'reviews'=>$reviews];
 
             return view('detailview', $data);
+        }
+
+        public function create(){
+            $ratings = DB::table('ratings')->get();
+            $genres = DB::table('genres')->get();
+            $sounds = DB::table('sounds')->get();
+            $formats = DB::table('formats')->get();
+            $labels = DB::table('labels')->get();
+            $data= ['labels'=>$labels, 'sounds'=>$sounds, 'formats'=>$formats, 'ratings' => $ratings,
+                'genres' => $genres];
+            return view('dvdform', $data);
         }
 
         public function createReview(Request $request){
@@ -66,15 +85,15 @@ use App\Models\Dvd;
 
         public function addNewDvd(Request $request){
 
-            $validation = Dvd::validateNewSong($request->all());
+            $validation = Dvd::validateNewDvd($request->all());
             if($validation->passes()){
                 Dvd::addNew([
                     'title' => $request->input('title'),
-                    'label'=>$request->input('label'),
-                    'sound'=>$request->input('sound'),
-                    'genre'=>$request->input('genre'),
-                    'rating'=>$request->input('rating'),
-                    'format'=>$request->input('format'),
+                    'label'=>$request->input('label_id'),
+                    'sound'=>$request->input('sound_id'),
+                    'genre'=>$request->input('genre_id'),
+                    'rating'=>$request->input('rating_id'),
+                    'format'=>$request->input('format_id'),
                 ]);
                 return reditect('/dvds/create')
                 ->with('success', 'Dvd added to database!');

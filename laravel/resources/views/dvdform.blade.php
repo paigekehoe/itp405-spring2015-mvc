@@ -1,45 +1,80 @@
 @extends('layout')
 
+@section('navbar')
+
+@stop
+
+@section('jumbo')
+
+<h1>Insert DVD into database</h1>
+
+@stop
 
 @section('content')
 
     @foreach($errors->all() as $errorMessage)
-        <p>  {{ $errorMessage}} </p>
+        <p>  {{$errorMessage }} </p>
     @endforeach
 
     @if(Session::has('success'))
-    <p> {{ Session::get('success')) }}
+    <p> {{ Session::get('success') }}
     @endif
-    <h1>Insert DVD into database</h1>
+
     <form method="post" action="/dvds">
-        <input type="hidden" name="_token" value="{{ echo csrf_token()}} ">
+        <input type="hidden" name="_token" value= "{{ (csrf_token()) }}" >
         <div class="form-group">
             <label>Title</label>
             <input name="title" class="form-control">
         </div>
         <div class="form-group">
-            <label>Artist</label>
-            <select class="form-control" name="artist_id">
-                {{ foreach ($artists as $artist): }}
-                    <option value ="{{echo $artist->id}} "">
-                        {{ echo $artist->artist_name }}
-                    </option>>
-                {{ endforeach; }}
+            <label>Label</label>
+            <select class="form-control" name="label_id">
+                @foreach ($labels as $label)
+                    <option value = "{{ $label->id }}" >
+                        {{$label->label_name }}
+                    </option>
+                @endforeach
             </select>
         </div>
         <div class="form-group">
             <label>Genre</label>
             <select class="form-control" name="genre_id">
-                {{ foreach ($genres as $genre): }}
-                    <option value ="{{php echo $genre->id }} ">
-                        {{ echo $genre->genre }}
-                    </option>>
-                {{ endforeach; }}
+                @foreach ($genres as $genre)
+                    <option value = "{{ $genre->id }}">
+                        {{ $genre->genre_name }}
+                    </option>
+                @endforeach
             </select>
         </div>
         <div class="form-group">
-            <label>Price</label>
-            <input name="price" class="form-control">
+            <label>Sound</label>
+            <select class="form-control" name="sound_id">
+                @foreach ($sounds as $sound)
+                <option value ="{{ $sound->id }}" >
+                    {{ $sound->sound_name }}
+                </option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Rating</label>
+            <select class="form-control" name="rating_id">
+                @foreach ($ratings as $rating)
+                <option value ="{{ $rating->id }}" >
+                    {{ $rating->rating_name }}
+                </option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Format</label>
+            <select class="form-control" name="format_id">
+                @foreach ($formats as $format)
+                <option value ="{{ $format->id }}" >
+                    {{ $format->format_name }}
+                </option>
+                @endforeach
+            </select>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
     </form>

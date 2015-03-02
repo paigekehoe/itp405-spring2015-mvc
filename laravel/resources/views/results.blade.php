@@ -1,14 +1,16 @@
+@extends('layout')
 
+@section('navbar')
 
-<!doctype HTML>
-<html>
-<head>
-    <title>Results!</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-</head>
-<body>
+@stop
 
+@section('jumbo')
 <h1> Results</h1>
+
+@stop
+
+@section('content')
+
 
 <p>
     You searched for a movie with the title: <?php echo $dvd_title; ?>
@@ -55,5 +57,4 @@
 </div>
 
 
-</body>
-</html>
+@stop

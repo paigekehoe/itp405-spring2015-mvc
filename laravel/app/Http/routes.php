@@ -13,19 +13,21 @@ use App\Models\Dvd;
 |
 */
 
-Route::get('/', 'DvdsController@search');
+Route::get('/', 'DvdsController@home');
 
-Route::get('home', 'HomeController@index');
+Route::get('/home', 'DvdsController@home');
 
 Route::get('/dvds/search', 'DvdsController@search');
 
 Route::get('/dvds', 'DvdsController@results');
 
-Route::get('/dvds/{id}', 'DvdsController@detailview');
-
 Route::post('/dvds/new', 'DvdsController@createReview');
 
-Route::post('/dvds/create', 'DvdsController@create');
+Route::get('/dvds/create', 'DvdsController@create');
+
+Route::post('/dvds', 'DvdsController@addNewDvd');
+
+Route::get('/dvds/{id}', 'DvdsController@detailview');
 
 Route::get('/eager-loading', function(){
     $dvds = Dvd::with('genre')->get();
