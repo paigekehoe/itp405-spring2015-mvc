@@ -17,11 +17,16 @@ h1 {
 }
 
 h4 {
-    background: green;
+    color: white;
+    background-color: green;
+    text-align: center;
 }
 
 h5 {
+    color: white;
+    font-weight: bold;
     background: red;
+    text-align: center;
 }
 
 .navbar-default {

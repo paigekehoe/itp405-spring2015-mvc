@@ -21,9 +21,9 @@
                         <a href= "#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             Genres Menu <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            @foreach ($genres as $genre)
+                            @foreach ( $genres as $genre )
                             <li>
-                                <a href="/genres/{{$genre->genre_name }}/dvds">{{ $genre->genre_name}}</a>
+                                <a href="/genres/{{$genre->genre_name }}/dvds">{{ $genre->genre_name }}</a>
                             </li>
                             @endforeach
                         </ul>

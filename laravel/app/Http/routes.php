@@ -36,12 +36,19 @@ Route::get('/eager-loading', function(){
 
 Route::get('/genres/{genre_name}/dvds', function($genre_name){
     $dvds = Dvd::with('genre')
+        ->join('ratings', 'ratings.id','=','dvds.rating_id')
+        ->join('labels', 'labels.id','=','dvds.label_id')
         ->whereHas('genre', function($query) use ($genre_name) {
-        $query->where('genre_name', '=', $genre_name);
+        $query
+            ->where('genre_name', '=', $genre_name);
     })
     ->get();
+    $genres = DB::table('genres')->get();
+    $ratings = DB::table('ratings')->get();
+    $labels = DB::table('labels')->get();
 
-    return $dvds;
+    //return($dvds);
+    return view('genres', ['genre_name'=>$genre_name, 'dvds'=>$dvds, 'genres'=>$genres, 'ratings'=>$ratings, 'labels'=>$labels]);
 });
 
 Route::controllers([
