@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use DB;
 use App\Models\Dvd;
+use \Cache;
 
     class DvdsController extends Controller {
 
@@ -45,10 +46,36 @@ use App\Models\Dvd;
         public function detailview($dvd_id){
             $dvd = Dvd::getDvd($dvd_id);
             $reviews = Dvd::getReviews($dvd_id);
-            $data = ['dvd'=>$dvd, 'dvd_id'=>$dvd_id, 'reviews'=>$reviews];
+
+            if(Cache::has("tomatoe-$dvd->title")){
+
+                $jsonString = Cache::get("tomatoe-$dvd->title");
+                $rawData = json_decode($jsonString);
+
+            }
+
+            else {
+
+                $url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?page=1&apikey=72m6x95wpv6wvdzcwt6amc3r&q=".urlencode($dvd->title);
+                $jsonString = file_get_contents($url);
+                $rawData = json_decode($jsonString);
+                Cache::put("tomatoe-$dvd->title", $jsonString, 60);
+            }
+
+            $rtInfo = null;
+            foreach ($rawData->movies as $m):
+                if (strtolower($m->title) == strtolower($dvd->title)) :
+                    $rtInfo = $m;
+                endif;
+            endforeach;
+
+
+            $data = ['dvd'=>$dvd, 'dvd_id'=>$dvd_id, 'reviews'=>$reviews, 'rtInfo'=>$rtInfo,'rawInfo'=>$rawData];
 
             return view('detailview', $data);
         }
+
+
 
         public function create(){
             $ratings = DB::table('ratings')->get();

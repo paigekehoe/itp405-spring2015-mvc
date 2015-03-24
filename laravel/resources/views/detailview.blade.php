@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,21 +18,33 @@
     <?php endif; ?>
 
     <h1><?php echo $dvd->title ?></h1>
-
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>Rating</th>
-            <th>Genre</th>
-            <th>Label</th>
-            <th>Sound</th>
-            <th>Format</th>
-            <th>Release Date</th>
-        </tr>
-        </thead>
-
-        <tbody>
+    <?php if ($rtInfo != null ): ?>
+        <img src="<?php echo $rtInfo->posters.original ?>">
+    <?php endif; ?>
+        <table class="table table-striped">
+            <thead>
             <tr>
+                <?php if ($rtInfo != null ): ?>
+                    <th>Audience Score</th>
+                    <th>Critic Score</th>
+                    <th>Runtime</th>
+                <?php endif; ?>
+                <th>Rating </th>
+                <th>Genre</th>
+                <th>Label</th>
+                <th>Sound</th>
+                <th>Format</th>
+                <th>Release Date</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <?php if ($rtInfo != null ): ?>
+                    <td><?php echo $rtInfo->ratings.critics_score ?></td>
+                    <td><?php echo $rtInfo->ratings.audience_score ?></td>
+                    <td><?php echo $rtInfo->runtime ?></td>
+                <?php endif; ?>
                 <td><?php echo $dvd->rating_name ?></td>
                 <td><?php echo $dvd->genre_name?></td>
                 <td><?php echo $dvd->label_name?></td>
@@ -39,8 +52,29 @@
                 <td><?php echo $dvd->format_name?></td>
                 <td><?php echo DATE_FORMAT(new DateTime($dvd->release_date), 'm-d-Y') ?></td>
             </tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+
+    <?php if ($rtInfo != null ): ?>
+        <h4>Abridged Cast</h4>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Actor</th>
+                    <th>Character</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <?php foreach ($rtInfo->abridged_cast as $cast): ?>
+                <tr>
+                    <td><?php echo $cast->name ?></td>
+                    <td><?php echo $cast->characters[0]?></td>
+                </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+    <?php endif; ?>
 
     <h3>Reviews </h3>
 
@@ -96,6 +130,10 @@
 </div>
 
 </div>
-
+<div>
+    <h4>RAW INFO</h4>
+<?php echo $dvd->title;
+dd($rawInfo) ?>
+</div>
 </body>
 </html>

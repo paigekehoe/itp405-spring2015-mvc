@@ -55,3 +55,11 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+//Route::get('review', function(){
+//    $url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?page=1&apikey=72m6x95wpv6wvdzcwt6amc3r&q="+$movieTitle
+//    $jsonString = file_get_contents($url);
+//    $rawData = json_decode($jsonString);
+//});
+//
+//http://api.rottentomatoes.com/api/public/v1.0/movies.json?page=1&apikey=72m6x95wpv6wvdzcwt6amc3r&q=die+hard
