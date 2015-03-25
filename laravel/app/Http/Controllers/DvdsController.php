@@ -61,7 +61,7 @@ use \Cache;
                 $rawData = json_decode($jsonString);
                 Cache::put("tomatoe-$dvd->title", $jsonString, 60);
             }
-            if(count($rawData) == 0){
+            if($rawData->total == 0){
                 $rtInfo = null;
             }
             else{

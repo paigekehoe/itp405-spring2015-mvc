@@ -63,7 +63,7 @@
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th>Actor</th>
+                    <th>Actors</th>
 <!--                    <th>Character</th>-->
                 </tr>
                 </thead>
@@ -137,11 +137,11 @@
     </form>
 </div>
 
-    <div>
-        <h4>RAW INFO</h4>
-        <?php echo $dvd->title;
-        dd($rawInfo) ?>
-    </div>
+<!--    <div>-->
+<!--        <h4>RAW INFO</h4>-->
+<!--        --><?php //echo $dvd->title;
+//        dd($rawInfo) ?>
+<!--    </div>-->
 
 </body>
 </html>
