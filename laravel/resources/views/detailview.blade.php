@@ -18,9 +18,11 @@
     <?php endif; ?>
 
     <h1><?php echo $dvd->title ?></h1>
+</div>
     <?php if ($rtInfo != null ): ?>
-        <img src="<?php echo $rtInfo->posters.original ?>">
+<!--        <img src="--><?php //echo $rtInfo->posters.original ?><!--">-->
     <?php endif; ?>
+    <div>
         <table class="table table-striped">
             <thead>
             <tr>
@@ -41,8 +43,8 @@
             <tbody>
             <tr>
                 <?php if ($rtInfo != null ): ?>
-                    <td><?php echo $rtInfo->ratings.critics_score ?></td>
-                    <td><?php echo $rtInfo->ratings.audience_score ?></td>
+                    <td><?php echo $rtInfo->ratings->critics_score ?></td>
+                    <td><?php echo $rtInfo->ratings->audience_score ?></td>
                     <td><?php echo $rtInfo->runtime ?></td>
                 <?php endif; ?>
                 <td><?php echo $dvd->rating_name ?></td>
@@ -54,14 +56,15 @@
             </tr>
             </tbody>
         </table>
-
+    </div>
+    <div>
     <?php if ($rtInfo != null ): ?>
         <h4>Abridged Cast</h4>
             <table class="table table-striped">
                 <thead>
                 <tr>
                     <th>Actor</th>
-                    <th>Character</th>
+<!--                    <th>Character</th>-->
                 </tr>
                 </thead>
 
@@ -69,13 +72,18 @@
                 <?php foreach ($rtInfo->abridged_cast as $cast): ?>
                 <tr>
                     <td><?php echo $cast->name ?></td>
-                    <td><?php echo $cast->characters[0]?></td>
+<!--                    --><?php //if (property_exists($characters, $cast.characters)): ?>
+<!--                    <td>--><?php //echo $cast->characters?><!--</td>-->
+<!--                    --><?php //else : ?>
+<!--                        <td></td>-->
+<!--                    --><?php //endif; ?>
                 </tr>
                 <?php endforeach; ?>
                 </tbody>
             </table>
     <?php endif; ?>
-
+    </div>
+    <div>
     <h3>Reviews </h3>
 
     <table class="table table-striped">
@@ -97,7 +105,7 @@
         <?php endforeach; ?>
         </tbody>
     </table>
-
+    </div>
 
 <h3>Add Review</h3>
 </br>
@@ -129,11 +137,11 @@
     </form>
 </div>
 
-</div>
-<div>
-    <h4>RAW INFO</h4>
-<?php echo $dvd->title;
-dd($rawInfo) ?>
-</div>
+    <div>
+        <h4>RAW INFO</h4>
+        <?php echo $dvd->title;
+        dd($rawInfo) ?>
+    </div>
+
 </body>
 </html>

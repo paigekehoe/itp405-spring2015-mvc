@@ -79,7 +79,7 @@
       <file leaf-file-name="detailview.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/detailview.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="128" column="11" selection-start="4114" selection-end="4114" vertical-scroll-proportion="-75.625" vertical-offset="105" max-vertical-offset="2160">
+            <state line="66" column="0" selection-start="2121" selection-end="2159" vertical-scroll-proportion="-10.0" vertical-offset="750" max-vertical-offset="2280">
               <folding />
             </state>
           </provider>
@@ -97,7 +97,7 @@
       <file leaf-file-name="DvdsController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DvdsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="9" selection-start="2463" selection-end="2463" vertical-scroll-proportion="0.7390511" vertical-offset="720" max-vertical-offset="2145">
+            <state line="66" column="17" selection-start="2164" selection-end="2164" vertical-scroll-proportion="0.33211678" vertical-offset="808" max-vertical-offset="2310">
               <folding>
                 <element signature="e#39#67#0" expanded="true" />
               </folding>
@@ -471,7 +471,14 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/detailview.blade.php</url>
+          <line>32</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="5" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -765,15 +772,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Services/RottenTomatoes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="119" selection-start="240" selection-end="240" vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="315">
-          <folding>
-            <element signature="e#6#88#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="50" column="38" selection-start="1552" selection-end="1552" vertical-scroll-proportion="-7.125" vertical-offset="579" max-vertical-offset="1140">
@@ -835,16 +833,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Services/RottenTomatoes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="119" selection-start="240" selection-end="240" vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="315">
+          <folding>
+            <element signature="e#6#88#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/detailview.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="128" column="11" selection-start="4114" selection-end="4114" vertical-scroll-proportion="-75.625" vertical-offset="105" max-vertical-offset="2160">
+        <state line="66" column="0" selection-start="2121" selection-end="2159" vertical-scroll-proportion="-10.0" vertical-offset="750" max-vertical-offset="2280">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DvdsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="9" selection-start="2463" selection-end="2463" vertical-scroll-proportion="0.7390511" vertical-offset="720" max-vertical-offset="2145">
+        <state line="66" column="17" selection-start="2164" selection-end="2164" vertical-scroll-proportion="0.33211678" vertical-offset="808" max-vertical-offset="2310">
           <folding>
             <element signature="e#39#67#0" expanded="true" />
           </folding>

@@ -61,13 +61,24 @@ use \Cache;
                 $rawData = json_decode($jsonString);
                 Cache::put("tomatoe-$dvd->title", $jsonString, 60);
             }
-
-            $rtInfo = null;
-            foreach ($rawData->movies as $m):
-                if (strtolower($m->title) == strtolower($dvd->title)) :
-                    $rtInfo = $m;
-                endif;
-            endforeach;
+            if(count($rawData) == 0){
+                $rtInfo = null;
+            }
+            else{
+                $rtInfo = $rawData->movies[0];
+            }
+//            if(ends_with($dvd->title,' 1')):
+//                $sTitle = $dvd->title - ' 1';
+//                $searchTitle = strtolower($sTitle);
+//            else:
+//                $searchTitle = strtolower($dvd->title);
+//            endif;
+//
+//            foreach ($rawData->movies as $m):
+//                if (strtolower($m->title) == $searchTitle) :
+//                    $rtInfo = $m;
+//                endif;
+//            endforeach;
 
 
             $data = ['dvd'=>$dvd, 'dvd_id'=>$dvd_id, 'reviews'=>$reviews, 'rtInfo'=>$rtInfo,'rawInfo'=>$rawData];
