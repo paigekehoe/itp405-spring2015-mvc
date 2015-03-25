@@ -3,7 +3,8 @@
 use Illuminate\Http\Request;
 use DB;
 use App\Models\Dvd;
-use \Cache;
+
+use App\Services\RottenTomatoes;
 
     class DvdsController extends Controller {
 
@@ -46,27 +47,8 @@ use \Cache;
         public function detailview($dvd_id){
             $dvd = Dvd::getDvd($dvd_id);
             $reviews = Dvd::getReviews($dvd_id);
+            $rtInfo = RottenTomatoes::search($dvd->title);
 
-            if(Cache::has("tomatoe-$dvd->title")){
-
-                $jsonString = Cache::get("tomatoe-$dvd->title");
-                $rawData = json_decode($jsonString);
-
-            }
-
-            else {
-
-                $url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?page=1&apikey=72m6x95wpv6wvdzcwt6amc3r&q=".urlencode($dvd->title);
-                $jsonString = file_get_contents($url);
-                $rawData = json_decode($jsonString);
-                Cache::put("tomatoe-$dvd->title", $jsonString, 60);
-            }
-            if($rawData->total == 0){
-                $rtInfo = null;
-            }
-            else{
-                $rtInfo = $rawData->movies[0];
-            }
 //            if(ends_with($dvd->title,' 1')):
 //                $sTitle = $dvd->title - ' 1';
 //                $searchTitle = strtolower($sTitle);
@@ -81,7 +63,7 @@ use \Cache;
 //            endforeach;
 
 
-            $data = ['dvd'=>$dvd, 'dvd_id'=>$dvd_id, 'reviews'=>$reviews, 'rtInfo'=>$rtInfo,'rawInfo'=>$rawData];
+            $data = ['dvd'=>$dvd, 'dvd_id'=>$dvd_id, 'reviews'=>$reviews, 'rtInfo'=>$rtInfo];
 
             return view('detailview', $data);
         }

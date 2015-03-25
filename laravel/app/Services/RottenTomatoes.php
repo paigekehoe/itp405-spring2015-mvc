@@ -1,16 +1,34 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: pkehoe
- * Date: 3/24/15
- * Time: 12:13 PM
- */
 
-function search($dvd_title){
+namespace App\Services;
+use \Cache;
 
 
-$url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?page=1&apikey=72m6x95wpv6wvdzcwt6amc3r&q=$dvd_title";
-    $jsonString = file_get_contents($url);
-    $rawData = json_decode($jsonString);
+class RottenTomatoes {
 
-};
+    public static function search($dvd_title){
+
+        if(Cache::has("tomatoe-$dvd_title")){
+
+            $jsonString = Cache::get("tomatoe-$dvd_title");
+            $rawData = json_decode($jsonString);
+
+        }
+
+        else {
+
+            $url = "http://api.rottentomatoes.com/api/public/v1.0/movies.json?page=1&apikey=72m6x95wpv6wvdzcwt6amc3r&q=".urlencode($dvd_title);
+            $jsonString = file_get_contents($url);
+            $rawData = json_decode($jsonString);
+            Cache::put("tomatoe-$dvd_title", $jsonString, 60);
+        }
+        if($rawData->total == 0){
+            return null;
+        }
+        else{
+            return $rawData->movies[0];
+        }
+
+    }
+
+}
