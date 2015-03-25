@@ -17,11 +17,12 @@
         <p> <?php echo Session::get('success') ?> </p>
     <?php endif; ?>
 
-    <h1><?php echo $dvd->title ?></h1>
-</div>
+    <h1><?php echo $dvd->title ?>
+
     <?php if ($rtInfo != null ): ?>
-<!--        <img src="--><?php //echo $rtInfo->posters.original ?><!--">-->
+        <img src="<?php echo $rtInfo->posters->original ?>"> </h1>
     <?php endif; ?>
+</div>
     <div>
         <table class="table table-striped">
             <thead>
